@@ -145,7 +145,7 @@ function compute() {
   const elapsedHours = toNumber(fields.elapsedHours);
   const driftDistance = driftSpeed * elapsedHours;
 
-  outputs.driftDirOut.textContent = fmt(driftDir, 0, "°T");
+  outputs.driftDirOut.textContent = fmt(driftDir, 0, "deg T");
   outputs.driftSpeedOut.textContent = fmt(driftSpeed, 2, "kt");
   outputs.driftDistanceOut.textContent = fmt(driftDistance, 2, "NM");
 
@@ -154,7 +154,7 @@ function compute() {
   let estimatedPosition = "Enter datum lat/lon to compute position.";
   if (Number.isFinite(datumLat) && Number.isFinite(datumLon)) {
     const estimated = destinationLatLon(datumLat, datumLon, driftDir, driftDistance);
-    estimatedPosition = `${estimated.lat.toFixed(4)}°, ${estimated.lon.toFixed(4)}°`;
+    estimatedPosition = `${estimated.lat.toFixed(4)} deg, ${estimated.lon.toFixed(4)} deg`;
   }
   outputs.estimatedPositionOut.textContent = estimatedPosition;
 
@@ -165,7 +165,7 @@ function compute() {
   const searchableArea = searchEffort * correctedSweep;
 
   outputs.searchEffortOut.textContent = fmt(searchEffort, 1, "NM");
-  outputs.searchAreaOut.textContent = fmt(searchableArea, 1, "NM²");
+  outputs.searchAreaOut.textContent = fmt(searchableArea, 1, "NM^2");
 
   outputs.summaryBlock.textContent = [
     "SAR OVER-WATER QUICK SUMMARY",
@@ -174,11 +174,11 @@ function compute() {
     `Track spacing (S): ${fmt(trackSpacing, 2, "NM")} at C=${coverageFactor.toFixed(2)}`,
     `Estimated POD: ${fmt(pod * 100, 1, "%")}`,
     `Recommended search altitude: ${fmt(recommendedAltitude, 0, "ft")}`,
-    `Total drift vector: ${fmt(driftDir, 0, "°T")} / ${fmt(driftSpeed, 2, "kt")}`,
+    `Total drift vector: ${fmt(driftDir, 0, "deg T")} / ${fmt(driftSpeed, 2, "kt")}`,
     `Drift distance from datum: ${fmt(driftDistance, 2, "NM")} in ${fmt(elapsedHours, 1, "hr")}`,
     `Estimated position: ${estimatedPosition}`,
     `Total search effort: ${fmt(searchEffort, 1, "NM")}`,
-    `Estimated searchable area: ${fmt(searchableArea, 1, "NM²")}`
+    `Estimated searchable area: ${fmt(searchableArea, 1, "NM^2")}`
   ].join("\n");
 }
 

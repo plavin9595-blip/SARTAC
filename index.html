@@ -86,24 +86,24 @@
     <section class="card">
       <h2>4) Drift (current + leeway vector)</h2>
       <div class="grid three">
-        <label>Current Set (to, °T)
+        <label>Current Set (to, deg T)
           <input id="currentDir" type="number" step="1" min="0" max="359" value="90">
         </label>
         <label>Current Speed (kt)
           <input id="currentSpeed" type="number" step="0.1" min="0" value="1.2">
         </label>
-        <label>Wind Direction (from, °T)
+        <label>Wind Direction (from, deg T)
           <input id="windFrom" type="number" step="1" min="0" max="359" value="220">
         </label>
         <label>Leeway Speed (kt)
           <input id="leewaySpeed" type="number" step="0.1" min="0" value="0.8">
         </label>
-        <label>Leeway Angle Right of Downwind (°)
+        <label>Leeway Angle Right of Downwind (deg)
           <input id="leewayAngle" type="number" step="1" min="-90" max="90" value="0">
         </label>
       </div>
       <div class="results">
-        <div><span>Total Drift Set (to, °T):</span><strong id="driftDirOut">-</strong></div>
+        <div><span>Total Drift Set (to, deg T):</span><strong id="driftDirOut">-</strong></div>
         <div><span>Total Drift Speed (kt):</span><strong id="driftSpeedOut">-</strong></div>
         <div><span>Drift Distance from Datum:</span><strong id="driftDistanceOut">-</strong></div>
         <div><span>Estimated Position:</span><strong id="estimatedPositionOut">-</strong></div>
@@ -125,13 +125,13 @@
       </div>
       <div class="results">
         <div><span>Total Search Effort (NM):</span><strong id="searchEffortOut">-</strong></div>
-        <div><span>Estimated Searchable Area (NM²):</span><strong id="searchAreaOut">-</strong></div>
+        <div><span>Estimated Searchable Area (NM^2):</span><strong id="searchAreaOut">-</strong></div>
       </div>
     </section>
 
     <section class="card">
       <h2>6) Quick mission summary</h2>
-      <pre id="summaryBlock">Waiting for inputs…</pre>
+      <pre id="summaryBlock">Waiting for inputs...</pre>
       <button id="copySummaryBtn" type="button">Copy Summary</button>
       <p id="copyStatus" class="hint"></p>
     </section>
